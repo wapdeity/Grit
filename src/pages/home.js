@@ -302,12 +302,9 @@ class Home extends React.Component{
                              </div>
                           </div>
                        </div>
-
-
                     </div>
                     <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-                       
-
+                     
                        <div id="accordion" class="faq-section-accordion">
                           <div class="card">
                              <div class="card-header" id="headingOne">
