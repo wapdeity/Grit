@@ -9,9 +9,11 @@ function App() {
   return (
       <BrowserRouter>
       <ScrollTop/>
+      <Switch>
        <Route exact path="/" component={Home}></Route>
        <Route exact path="/sign-in" component={Login}></Route>
        <Route exact path="/sign-up" component={Registeration}></Route>
+       </Switch>
       </BrowserRouter>
   );
 }

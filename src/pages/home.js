@@ -1,23 +1,34 @@
 import React from 'react';
-import { Link} from 'react-router-dom'
-class Home extends React.Component{
+import { Link} from 'react-router-dom';
 
-   constructor(props) {
-      super(props);
-      this.state = {value: ''};
+class Home extends React.Component{
+ 
+   // constructor(props) {
+   //    super(props);
+   //    this.state = {value: ''};
   
-      this.handleChange = this.handleChange.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
-    }
+   //    this.handleChange = this.handleChange.bind(this);
+   //    this.handleSubmit = this.handleSubmit.bind(this);
+   //  }
   
-    handleChange(event) {
-      this.setState({value: event.target.value});
-    }
+   //  handleChange(event) {
+   //    this.setState({value: event.target.value});
+   //  }
   
-   handleSubmit(event) {
-      console.log(this.state.value);
-      event.preventDefault();
-   }
+   // handleSubmit(event) {
+   //    console.log(this.state.value);
+   //    event.preventDefault();
+   // }
+   
+   handleSubmit = e => {
+      e.preventDefault();
+      let emailAddress = this.email.value;
+      let path = `sign-up?email=${emailAddress}`;
+      // this is the part !!!
+      this.props.history.push(path);
+    };
+
+    
     render() {
         return(
         <div>     
@@ -358,7 +369,7 @@ class Home extends React.Component{
                      <div class="news-letter">
                        <p>Take control of your money Start your portfolio today andget $5 in Bitcoin with code 21OCT5 →</p>
                        <form onSubmit={this.handleSubmit}>
-                          <input type="email" value={this.state.value} onChange={this.handleChange}  placeholder="Your Email*"/>
+                          <input type="email" ref={input => (this.email = input)}  placeholder="Your Email*" required/>
                           <button type="submit" value="Submit" >SignUp</button>
                         </form>
                     </div>

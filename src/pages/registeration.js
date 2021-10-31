@@ -1,6 +1,16 @@
 import React from 'react';
-import { Link} from 'react-router-dom'
+import { Link,useLocation} from 'react-router-dom'
 class Registeration extends React.Component{
+   constructor(props) {
+      super(props);
+      const params = new URLSearchParams(props.location.search);
+      if(params.get('email')){
+         this.email = params.get('email');
+      }else{
+         this.email = null;
+      }
+   }
+
     render() {
         return(
         <div>     
@@ -50,16 +60,16 @@ class Registeration extends React.Component{
                         <form>
                            <div class="form-row">
                               <div class="col-sm-6">
-                                 <input type="text" class="form-control" placeholder="First name *"/>
+                                 <input type="text" class="form-control" placeholder="First name *" required/>
                               </div>
                               <div class="col-sm-6">
-                                 <input type="text" class="form-control" placeholder="Last name *"/>
+                                 <input type="text" class="form-control" placeholder="Last name *" required/>
                               </div>
                               <div class="col-sm-12">
-                                 <input type="text" class="form-control" placeholder="Email *"/>
+                                 <input type="text" class="form-control" placeholder="Email *" defaultValue={this.email} required/>
                               </div>
                               <div class="col-sm-12">
-                                 <input type="Password" class="form-control" placeholder="Password *"/>
+                                 <input type="Password" class="form-control" placeholder="Password *" required/>
                               </div>
                               <div class="col-sm-12">
                                  <select>
@@ -72,7 +82,7 @@ class Registeration extends React.Component{
                               </div>
                               <div class="form-check">
                                  <input class="form-check-input" type="checkbox" id="gridCheck"/>
-                                 <label class="form-check-label" for="gridCheck">
+                                 <label class="form-check-label" htmlFor="gridCheck">
                                  I certify that I am 18 years of age or older, and agree to the <a href="#">User Agreement</a> and <a href="#">Privacy Policy.</a>
                                  </label>
                               </div>
