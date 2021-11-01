@@ -195,7 +195,8 @@ class Home extends React.Component{
                           <li>Up to $10K per transaction</li>
                           <li>You're in control</li>
                        </ul>
-                       <a href="#">Get Started </a>
+                       <Link to='/sign-up'>Get Started</Link>
+                       
                     </div>
                  </div>
               </div>
